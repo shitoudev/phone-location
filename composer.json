@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Shitoudev\\Phone": "src"
+            "Shitoudev\\Phone\\": "src/"
         }
     }
 }
