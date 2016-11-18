@@ -1,12 +1,21 @@
 ## 手机号码归属地查询
 PHP 实现手机号码归属地查询，数据文件来自 [https://github.com/lovedboy/phone](https://github.com/lovedboy/phone)
 
+### Installation
+```
+composer require "shitoudev/phone-location:^0.1"
+```
+
 ### Usage
 ```php
 <?php
 use Shitoudev\Phone\PhoneLocation;
-	
-include './src/PhoneLocation.php';
+
+// composer 方式安装
+// include './vendor/autoload.php';
+
+// 非 composer 方式安装的，引入文件
+// include './src/PhoneLocation.php';
 	
 $pl = new PhoneLocation();
 $info = $pl->find(18621281566);
