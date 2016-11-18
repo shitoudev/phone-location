@@ -3,6 +3,7 @@ PHP 实现手机号码归属地查询，数据文件来自 [https://github.com/l
 
 ### Usage
 ```php
+<?php
 use Shitoudev\Phone\PhoneLocation;
 	
 include './src/PhoneLocation.php';
