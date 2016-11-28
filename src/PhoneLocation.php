@@ -14,7 +14,8 @@ class PhoneLocation
     private $_fileHandle = null;
     private $_fileSize = 0;
 
-    function __construct() {
+    function __construct() 
+    {
         $this->_fileHandle = fopen(self::DATA_FILE, 'r');
         $this->_fileSize = filesize(self::DATA_FILE);
     }
@@ -25,7 +26,8 @@ class PhoneLocation
      * @return array
      * @author shitoudev <shitoudev@gmail.com>
      */
-    public function find($phone) {
+    public function find($phone) 
+    {
         $item = [];
         if (strlen($phone) != 11) return $item;
         $telPrefix = substr($phone, 0, 7);
@@ -72,15 +74,16 @@ class PhoneLocation
      * @return array
      * @author shitoudev <shitoudev@gmail.com>
      */
-    private function phoneInfo($itemStr, $type) {
+    private function phoneInfo($itemStr, $type) 
+    {
         $typeStr = self::$spList[$type];
         $itemArr = explode('|', $itemStr);
         $data = ['province'=>$itemArr[0], 'city'=>$itemArr[1], 'postcode'=>$itemArr[2], 'tel_prefix'=>$itemArr[3], 'sp'=>$typeStr];
         return $data;
     }
 
-    function __destruct() {
+    function __destruct() 
+    {
         fclose($this->_fileHandle);
     }
 }
-?>
