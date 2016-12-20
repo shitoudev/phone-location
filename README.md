@@ -1,4 +1,6 @@
 ## 手机号码归属地查询
+[![Build Status](https://travis-ci.org/shitoudev/phone-location.svg?branch=master&style=flat-square)](https://travis-ci.org/shitoudev/phone-location)
+
 PHP 实现手机号码归属地查询，数据文件来自 [https://github.com/lovedboy/phone](https://github.com/lovedboy/phone)
 
 ### Installation
