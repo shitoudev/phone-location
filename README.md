@@ -1,5 +1,8 @@
 ## 手机号码归属地查询
-[![Build Status](https://travis-ci.org/shitoudev/phone-location.svg?branch=master&style=flat-square)](https://travis-ci.org/shitoudev/phone-location)
+[![Latest Stable Version](https://img.shields.io/packagist/v/shitoudev/phone-location.svg)](https://packagist.org/packages/shitoudev/phone-location)
+[![Build Status](https://travis-ci.org/shitoudev/phone-location.svg?style=flat-square&branch=master)](https://travis-ci.org/shitoudev/phone-location)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg)](https://php.net/)
+
 
 PHP 实现手机号码归属地查询，数据文件来自 [https://github.com/lovedboy/phone](https://github.com/lovedboy/phone)
 

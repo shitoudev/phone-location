@@ -1,6 +1,5 @@
 <?php
 
-// require dirname(__DIR__) . '/src/PhoneLocation.php';
 use Shitoudev\Phone\PhoneLocation;
 
 /**
