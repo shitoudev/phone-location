@@ -7,14 +7,14 @@
 
 namespace Shitoudev\Phone;
 
-class PhoneLocation 
+class PhoneLocation
 {
     const DATA_FILE = __DIR__.'/phone.dat';
     protected static $spList = [1=>'移动', 2=>'联通', 3=>'电信', 4=>'电信虚拟运营商', 5=>'联通虚拟运营商', 6=>'移动虚拟运营商'];
     private $_fileHandle = null;
     private $_fileSize = 0;
 
-    function __construct() 
+    public function __construct()
     {
         $this->_fileHandle = fopen(self::DATA_FILE, 'r');
         $this->_fileSize = filesize(self::DATA_FILE);
@@ -26,17 +26,19 @@ class PhoneLocation
      * @return array
      * @author shitoudev <shitoudev@gmail.com>
      */
-    public function find($phone) 
+    public function find($phone)
     {
         $item = [];
-        if (strlen($phone) != 11) return $item;
+        if (strlen($phone) != 11) {
+            return $item;
+        }
         $telPrefix = substr($phone, 0, 7);
 
         fseek($this->_fileHandle, 4);
         $offset = fread($this->_fileHandle, 4);
         $indexBegin = implode('', unpack('L', $offset));
         $total = ($this->_fileSize - $indexBegin)/9;
-        
+
         $position = $leftPos = 0;
         $rightPos = $total;
 
@@ -47,7 +49,7 @@ class PhoneLocation
             // echo 'position = '.$position.' idx = '.$idx;
             if ($idx < $telPrefix) {
                 $leftPos = $position;
-            } else if ($idx > $telPrefix) {
+            } elseif ($idx > $telPrefix) {
                 $rightPos = $position;
             } else {
                 // 找到数据
@@ -74,7 +76,7 @@ class PhoneLocation
      * @return array
      * @author shitoudev <shitoudev@gmail.com>
      */
-    private function phoneInfo($itemStr, $type) 
+    private function phoneInfo($itemStr, $type)
     {
         $typeStr = self::$spList[$type];
         $itemArr = explode('|', $itemStr);
@@ -82,7 +84,7 @@ class PhoneLocation
         return $data;
     }
 
-    function __destruct() 
+    function __destruct()
     {
         fclose($this->_fileHandle);
     }
