@@ -84,7 +84,7 @@ class PhoneLocation
         return $data;
     }
 
-    function __destruct()
+    public function __destruct()
     {
         fclose($this->_fileHandle);
     }
