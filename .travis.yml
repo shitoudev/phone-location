@@ -5,4 +5,4 @@ php:
 install:
   - composer self-update
   - composer install --dev --prefer-source
-script: phpunit -c phpunit.xml --coverage-text
+script: vendor/bin/phpunit -c phpunit.xml --coverage-text
