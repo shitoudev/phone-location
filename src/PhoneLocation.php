@@ -43,7 +43,7 @@ class PhoneLocation
         $rightPos = $total;
 
         while ($leftPos < $rightPos - 1) {
-            $position = $leftPos + intval(($rightPos - $leftPos)/2);
+            $position = $leftPos + (($rightPos - $leftPos) >> 1);
             fseek($this->_fileHandle, ($position*9) + $indexBegin);
             $idx = implode('', unpack('L', fread($this->_fileHandle, 4)));
             // echo 'position = '.$position.' idx = '.$idx;
