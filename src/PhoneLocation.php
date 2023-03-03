@@ -10,7 +10,7 @@ namespace Shitoudev\Phone;
 class PhoneLocation
 {
     const DATA_FILE = __DIR__.'/phone.dat';
-    protected static $spList = [1=>'移动', 2=>'联通', 3=>'电信', 4=>'电信虚拟运营商', 5=>'联通虚拟运营商', 6=>'移动虚拟运营商'];
+    protected static $spList = [1 => '移动', 2 => '联通', 3 => '电信', 4 => '电信虚拟运营商', 5 => '联通虚拟运营商', 6 => '移动虚拟运营商'];
     private $_fileHandle = null;
     private $_fileSize = 0;
 
@@ -78,9 +78,9 @@ class PhoneLocation
      */
     private function phoneInfo($itemStr, $type)
     {
-        $typeStr = self::$spList[$type];
+        $typeStr = isset(self::$spList[$type]) ? self::$spList[$type] : '';
         $itemArr = explode('|', $itemStr);
-        $data = ['province'=>$itemArr[0], 'city'=>$itemArr[1], 'postcode'=>$itemArr[2], 'tel_prefix'=>$itemArr[3], 'sp'=>$typeStr];
+        $data = ['province' => $itemArr[0], 'city' => $itemArr[1], 'postcode' => $itemArr[2], 'tel_prefix' => $itemArr[3], 'sp' => $typeStr];
         return $data;
     }
 
